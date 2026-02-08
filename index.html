@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta charset="viewport" content="width=device-width, initial-scale = 1.0" />
+    <title> Four Sorting Algorithms</title>
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+        body {
+            font-family: 'Inter', sans-seriff;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0 16px;
+
+        }
+
+        pre,
+        code {
+            font-family: 'Source Code Pro', monospace;
+
+        }
+
+        .algorithm {
+            margin: 24px 0;
+        }
+
+        pre {
+            overflow-x: auto;
+            padding: 12px;
+        }
+
+        #page-footer {
+            background-color: #6a1b9a;
+            color: #fdb515;
+            font-weight: bold;
+            padding: 16px;
+            margin-top: 32px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<header id ="page-header" class = "site-header">
+    <h1> Introduction to Basic Sorting Algorithms</h1>
+    <p>
+        This page provides basic information and JavaScript implementation of four fundamental sorting algorithms: Insertion Sort, Selection Sort, Merge Sort and Quick Sort.
+        </p>
+</header>
+
+
+<main id = "main-content" class ="content">
+
+<div id = "insertion-sort" class = "algorithm">
+    <h2> Insertion Sort </h2>
+    <p>
+insertion sort is a simple sorting algorithm that builds the sorted array one item at a time. It is much like sorting playing cards in your hands.
+
+</p>
+<pre> <code class="language-javascript"> // Insertion Sort Implementation
+
+function insertionSort(arr){
+    for ( let i = 1; i &lt; arr.length; i++){
+        let key = arr[i];
+        let j = i-1;
+
+        while (j &gt; = 0 &amp; &amp; arr[j] &gt; key){
+        arr[j + 1] = arr[j];
+        J--;
+        }
+        arr[j + 1] = key;
+        }
+        return arr;
+    }
+</code> </pre>
+</div>
+
+<div id="selection-sort" class="algorithm">
+      <h2>Selection Sort</h2>
+
+      <p>
+        Selection sort repeatedly selects the smallest element from the unsorted
+        portion and places it in the sorted portion.
+      </p>
+
+      <pre><code class="language-javascript">// Selection Sort Implementation
+function selectionSort(arr) {
+  for (let i = 0; i &lt; arr.length - 1; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j &lt; arr.length; j++) {
+      if (arr[j] &lt; arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+  }
+
+  return arr;
+}
+</code></pre>
+    </div>
+
+<div id="merge-sort" class="algorithm">
+      <h2>Merge Sort</h2>
+
+      <p>
+        Merge sort is a divide-and-conquer algorithm that splits the array
+        into halves, sorts them, and merges the results.
+      </p>
+
+      <pre><code class="language-javascript">// Merge Sort Implementation
+function mergeSort(arr) {
+  if (arr.length &lt;= 1) return arr;
+
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
+}
+</code></pre>
+    </div>
+
+<div id="quick-sort" class="algorithm">
+      <h2>Quick Sort</h2>
+
+      <p>
+        Quick sort selects a pivot element, partitions the array around it,
+        and recursively sorts the partitions.
+      </p>
+
+      <pre><code class="language-javascript">// Quick Sort Implementation
+function quickSort(arr) {
+  if (arr.length &lt;= 1) return arr;
+
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i &lt; arr.length - 1; i++) {
+    if (arr[i] &lt; pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+</code></pre>
+    </div>
+
+  </main>
+
+  <footer id="page-footer" class="site-footer">
+    <!--
+      Footer content with bonus CSS styling applied
+    -->
+    <p>© 2025 SF State University — Intro to Web Development</p>
+  </footer>
+</body>
+</html>
+
